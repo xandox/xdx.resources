@@ -1,0 +1,1 @@
+content file inner_dir/2.txt
