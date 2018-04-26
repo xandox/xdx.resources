@@ -1,2 +1,0 @@
-
-xdx_generate_resources(_xdx_RESOURCES)
