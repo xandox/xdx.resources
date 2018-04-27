@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+
 #include <xdx/resources/test_embided_resources.hpp>
 
 TEST(xdx_resources_embided_only_tests, has_resources) {
@@ -14,4 +15,18 @@ TEST(xdx_resources_embided_only_tests, resources_info) {
     ASSERT_EQ(2, rlist.size());
     ASSERT_EQ("rr/1.txt", rlist[0].id);
     ASSERT_EQ("rr/inner_dir/2.txt", rlist[1].id);
+}
+
+TEST(xdx_resources_embided_only_tests, content) {
+    xdx::resources::TestEmbidedResources resources;
+
+    {
+        const auto content = resources.get_resource_content("rr/1.txt");
+        std::cout << std::string(content.begin(), content.end()) << std::endl;
+    }
+
+    {
+        const auto content = resources.get_resource_content("rr/inner_dir/2.txt");
+        std::cout << std::string(content.begin(), content.end()) << std::endl;
+    }
 }
